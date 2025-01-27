@@ -1,0 +1,38 @@
+<h2>Search Phonebook</h2>
+<form action="/phonebook" method="GET">
+    <input type="text" name="contact" placeholder="Search contacts..." required>
+    <button type="submit">Search</button>
+</form>
+
+
+<h2>Phonebook Entries</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each contacts}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{#each this.phoneNumbers}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{!-- 6 --}}
+<h2>Add New Contact</h2>
+<form action="/phonebook" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="phoneNumbers">Phone Numbers (comma-separated):</label>
+    <input type="text" id="phoneNumbers" name="phoneNumbers" required>
+    <button type="submit">Add Contact</button>
+</form>

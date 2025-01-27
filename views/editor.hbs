@@ -1,0 +1,19 @@
+{{!-- <form action="/editor" method="POST">
+    <label for="formText">Enter text:</label>
+    <input type="text" id="formText" name="formText" required>
+    <button type="submit">Submit</button>
+</form> --}}
+
+
+{{!-- 7 --}}
+<div class="editor-container">
+    <div class="input-area">
+        <form action="/editor" method="POST">
+            <textarea name="formText" rows="10" cols="50" placeholder="Enter your text here...">{{originalText}}</textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="output-area">
+        {{{modifiedText}}}
+    </div>
+</div>
